@@ -1,15 +1,20 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.moowork.node'
 
 repositories {
     jcenter()
@@ -32,3 +37,14 @@ dependencies {
 configurations {
     compile.exclude module: "spring-boot-starter-tomcat"
 }
+
+node {
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+}
+
+task webpack(type: NodeTask, dependsOn: 'npmInstall') {
+    script = project.file('node_modules/webpack/bin/webpack.js')
+}
+
+processResources.dependsOn 'webpack'
