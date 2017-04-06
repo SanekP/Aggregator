@@ -19,11 +19,12 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-//    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-undertow")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-devtools")
 //    compile("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 }
