@@ -1,5 +1,5 @@
-let traverson = require('traverson');
-let JsonHalAdapter = require('traverson-hal');
+import traverson from "traverson";
+import JsonHalAdapter from "traverson-hal";
 
 traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
 
