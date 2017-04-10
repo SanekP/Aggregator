@@ -30,7 +30,7 @@ class App extends React.Component {
         console.log("App.render");
         if (this.state && this.state.samples) {
             return (
-                <SampleChart id='chart' samples={this.state.samples}/>
+                <SampleChart samples={this.state.samples}/>
             )
         } else {
             return (
